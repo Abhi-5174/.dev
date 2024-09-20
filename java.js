@@ -4,7 +4,6 @@ var main111 = document.querySelector(".parent");
 var cursorm = document.querySelector("#cursormover");
 let navlist = document.querySelector('.menuitem');
 var logo = document.querySelector(".logoz");
-var upperimg = document.querySelector(".logoz .upper");
 
 function menutogle() {
   navlist.classList.toggle('open');
@@ -22,6 +21,7 @@ function menutogle() {
 function loadinganimation() {
   gsap.to(".loader", {
     delay: 0.4,
+    duration: .4,
     height: 0,
     ease: "expo.inOut",
     stagger: .1,
@@ -86,33 +86,15 @@ function locomotive() {
   });
 
   document.querySelector("#header .menuitem .proj").addEventListener("click", () => {
-    menutogle()
+    menutogle();
     locoScroll.scrollTo(document.querySelector(".page2"), -100);
+  });
+
+  window.addEventListener('load', () => {
+    locoScroll.reinit();
   });
 };
 locomotive();
-
-/*window.addEventListener("scroll", (event) => {
-  event.preventDefault();
-});
-window.addEventListener("touchmove", (event) => {
-  event.preventDefault();
-});*/
-
-function mainlogo() {
-
-  logo.addEventListener("mouseenter", function () {
-    gsap.to(upperimg, {
-      opacity: 1
-    });
-  });
-  logo.addEventListener("mouseleave", function () {
-    gsap.to(upperimg, {
-      opacity: 0
-    });
-  });
-};
-mainlogo();
 
 function menubtn() {
   buttonElement.addEventListener('click', () => menutogle());
@@ -166,10 +148,9 @@ function revealanimation() {
 
   var t1 = gsap.timeline();
 
-
-  gsap.from(".logoz", {
-    y: -50,
-    opacity: 0,
+  gsap.to(".logoz", {
+    y: 0,
+    opacity: 1,
     delay: 2,
     duration: 0.8,
     stagger: 0.2,
@@ -236,7 +217,7 @@ function revealanimation() {
   gsap.from(".page2 h1", {
     y: 150,
     opacity: 0,
-    stagger: true,
+    stagger: .1,
     duration: 1,
     scrollTrigger: {
       trigger: ".page2",
@@ -245,9 +226,9 @@ function revealanimation() {
     }
   });
   gsap.from(".page2 .projectpages", {
-    y: 150,
+    y: 200,
     opacity: 0,
-    stagger: true,
+    stagger: .1,
     duration: 1,
     scrollTrigger: {
       trigger: ".page2 .projectpages",
@@ -256,9 +237,9 @@ function revealanimation() {
     }
   });
   gsap.from(".page2 .projectpages2", {
-    y: 150,
+    y: 200,
     opacity: 0,
-    stagger: true,
+    stagger: .1,
     duration: 1,
     scrollTrigger: {
       trigger: ".page2 .projectpages2",
@@ -269,7 +250,7 @@ function revealanimation() {
   gsap.from(".email", {
     y: 100,
     opacity: 0,
-    stagger: true,
+    stagger: .1,
     duration: 1,
     scrollTrigger: {
       trigger: "footer",
@@ -280,7 +261,7 @@ function revealanimation() {
   gsap.from(".lastxt", {
     y: 100,
     opacity: 0,
-    stagger: true,
+    stagger: .1,
     duration: 1,
     scrollTrigger: {
       trigger: ".email",

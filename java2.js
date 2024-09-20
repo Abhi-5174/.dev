@@ -3,7 +3,6 @@ var main111 = document.querySelector(".parent");
 var cursorm = document.querySelector("#cursormover");
 let navlist = document.querySelector('.menuitem');
 var logo = document.querySelector(".logoz");
-var upperimg = document.querySelector(".logoz .upper");
 
 function menutogle() {
   navlist.classList.toggle('open');
@@ -23,7 +22,7 @@ function loadinganimation() {
     delay: 0.4,
     height: 0,
     ease: "expo.inOut",
-    stagger: true,
+    stagger: 0.1,
     onComplete: () => {
       document.querySelector(".loader").remove();
     }
@@ -33,7 +32,7 @@ function loadinganimation() {
     height: 0,
     ease: "expo.inOut",
     duration: 1,
-    stagger: true,
+    stagger: 0.1,
     onComplete: () => {
       document.querySelector(".page123").remove();
     }
@@ -84,23 +83,12 @@ function locomotive() {
     menutogle()
     locoScroll.scrollTo(document.querySelector(".page2"), -100);
   });
+
+  window.addEventListener('load', () => {
+    locoScroll.reinit();
+  });
 };
 locomotive();
-
-function mainlogo() {
-
-  logo.addEventListener("mouseenter", function () {
-    gsap.to(upperimg, {
-      opacity: 1
-    });
-  });
-  logo.addEventListener("mouseleave", function () {
-    gsap.to(upperimg, {
-      opacity: 0
-    });
-  });
-};
-mainlogo();
 
 function menubtn() {
   buttonElement.addEventListener('click', () => menutogle());
@@ -151,9 +139,9 @@ function cursormover() {
 cursormover();
 
 function scrollrevealanim() {
-  gsap.from(".logoz", {
-    y: -50,
-    opacity: 0,
+  gsap.to(".logoz", {
+    y: 0,
+    opacity: 1,
     delay: 2,
     duration: 1,
     stagger: 0.2,
