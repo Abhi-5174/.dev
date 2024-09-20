@@ -179,7 +179,7 @@ button[aria-expanded="true"] span:last-child {
   color: black;
   display: block;
   font-size: 32px;
-  font-weight: 650;
+  font-weight: 550;
   transform: translateY(50px);
   transition: all .3s ease .6s;
   /*border-bottom: 2px solid transparent;*/
@@ -256,7 +256,7 @@ button[aria-expanded="true"] span:last-child {
 }
 
 .menuitem .socialmedia a svg {
-  height: 34px;
+  height: 30px;
   fill: #FFFAF0;
 }
 
@@ -272,21 +272,24 @@ button[aria-expanded="true"] span:last-child {
 
 .menuitem .socialmedia .mail:hover svg {
   fill: black;
-  height: 34px;
+  height: 30px;
 }
 
-#cursormover {
-  display: block;
-  position: fixed;
-  height: 30px;
-  width: 30px;
-  z-index: 10001;
-  pointer-events: none;
-  background-color: white;
-  border-radius: 50%;
-  opacity: 0;
-  mix-blend-mode: difference;
-  transform: translate(-50%, -50%);
+
+@media screen and (hover: hover) and (pointer: fine){
+  #cursormover {
+    position: fixed;
+    height: 30px;
+    width: 30px;
+    z-index: 10001;
+    pointer-events: none;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity .4s ease;
+    mix-blend-mode: difference;
+    transform: translate(-50%, -50%);
+  }
 }
 
 #cursormover.close {
@@ -365,8 +368,8 @@ button[aria-expanded="true"] span:last-child {
 }
 
 #page1 h1 {
-  font-size: 44px;
-  font-weight: 500;
+  font-size: 48px;
+  font-weight: 520;
 }
 
 #page1 #h2 {
@@ -376,8 +379,8 @@ button[aria-expanded="true"] span:last-child {
 
 #page1 h2 {
   position: relative;
-  font-size: 75px;
-  font-weight: 500;
+  font-size: 79px;
+  font-weight: 520;
   line-height: 85px;
 }
 
@@ -469,7 +472,7 @@ button[aria-expanded="true"] span:last-child {
   border-radius: 50%;
   place-items: center;
   color: black;
-  font-weight: 550;
+  font-weight: 500;
   font-size: 18px;
   transition: all .5s ease;
   background-color: transparent;
@@ -562,7 +565,7 @@ button[aria-expanded="true"] span:last-child {
 
 .page2 .projectpages2 .projectpagesfirst2 h2 {
   font-size: clamp(2.2rem, 5.8vw, 2.8rem);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .page2 .projectpages2 .projectpagesfirst2 .explorebtn2 {
@@ -698,7 +701,7 @@ button[aria-expanded="true"] span:last-child {
 
 .lastxt1 span {
   font-size: 1.2rem;
-  font-weight: 100;
+  font-weight: 450;
 }
 
 .page2 .projectbox {
@@ -893,7 +896,7 @@ button[aria-expanded="true"] span:last-child {
 }
 
 @media (max-width: 880px) {
-
+/*
   #cursormover {
     display: none;
   }
@@ -901,7 +904,7 @@ button[aria-expanded="true"] span:last-child {
   body {
     cursor: auto;
   }
-
+*/
   #page1 h1 {
     font-size: 44px;
   }
@@ -941,7 +944,7 @@ button[aria-expanded="true"] span:last-child {
 
   .menuitem .socialmedia .mail:hover svg {
     fill: #FFFAF0;
-    height: 34px;
+    height: 30px;
   }
 }
 
@@ -1069,16 +1072,17 @@ button[aria-expanded="true"] span:last-child {
 
   #page1 h1 {
     font-size: 7vw;
-    font-weight: 500;
+    font-weight: 550;
   }
 
   #page1 h2 {
     font-size: 8.5vw;
-    font-weight: 500;
+    font-weight: 550;
   }
 
   #page1 h3 {
     margin-top: 20px;
+    font-weight: 400;
     width: 98%;
 
   }

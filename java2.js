@@ -110,35 +110,43 @@ menubtn();
 
 function cursormover() {
 
-  function disablecursor() {
-    cursorm.style.display = "none";
-  };
-  function enablecursor() {
-    cursorm.style.display = "block";
-  };
-
   main111.addEventListener("mousemove", function (dets) {
     cursorm.style.top = (dets.y) + "px";
     cursorm.style.left = (dets.x) + "px";
+  });
+
+  main111.addEventListener("mouseenter", () => {
     cursorm.style.opacity = 1;
   });
-  main111.addEventListener("mouseleave", () => disablecursor());
-  main111.addEventListener("mouseenter", () => enablecursor());
-  main111.addEventListener("mousedown", function () {
+  main111.addEventListener("mouseleave", () => {
+    cursorm.style.opacity = 0;
+  });
+  main111.addEventListener("mousedown", () => {
     cursorm.style.width = "20px";
     cursorm.style.height = "20px";
   });
-  main111.addEventListener("mouseup", function () {
+  main111.addEventListener("mouseup", () => {
     cursorm.style.width = "30px";
     cursorm.style.height = "30px";
   });
-  logo.addEventListener("mouseenter", () => disablecursor());
-  logo.addEventListener("mouseout", () => enablecursor());
-  buttonElement.addEventListener("mouseenter", () => disablecursor());
-  buttonElement.addEventListener("mouseleave", () => enablecursor());
-  navlist.addEventListener("mouseenter", () => disablecursor());
-  navlist.addEventListener("mousemove", () => disablecursor());
-  navlist.addEventListener("mouseleave", () => enablecursor());
+  logo.addEventListener("mouseenter", () => {
+    cursorm.style.opacity = 0;
+  });
+  logo.addEventListener("mouseleave", () => {
+    cursorm.style.opacity = 1;
+  });
+  buttonElement.addEventListener("mouseenter", () => {
+    cursorm.style.opacity = 0;
+  });
+  buttonElement.addEventListener("mouseleave", () => {
+    cursorm.style.opacity = 1;
+  });
+  navlist.addEventListener("mouseenter", () => {
+    cursorm.style.opacity = 0;
+  });
+  navlist.addEventListener("mouseleave", () => {
+    cursorm.style.opacity = 1;
+  });
 };
 cursormover();
 
