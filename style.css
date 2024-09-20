@@ -16,10 +16,6 @@
   src: url(./TTCommonsProVar.woff2);
 }
 
-.favicon {
-  border-radius: 50%;
-}
-
 body {
   background-color: #FFFAF0;
   cursor: none;
@@ -49,7 +45,8 @@ header {
   position: fixed;
   top: 0;
   z-index: 10000;
-  width: min(1200px, 100%);
+  max-width: 1420px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -165,7 +162,7 @@ button[aria-expanded="true"] span:last-child {
 
 .menuitem {
   position: absolute;
-  width: min(1200px, 100vw);
+  width: min(1400px, 100vw);
   left: 0;
   right: 0;
   bottom: 0;
@@ -392,13 +389,13 @@ button[aria-expanded="true"] span:last-child {
   width: 450px;
   height: 450px;
   margin: 0;
+  top: 22vh;
   right: 28vw;
-  top: 80px;
   scale: 0;
   border-radius: 50%;
   transition: all 1.5s ease;
   background-color: transparent;
-  border: 1px solid rgba(91, 91, 91, 0.35);
+  border: 1px solid rgba(91, 91, 91, 0.596);
   animation: roll 10s ease-in-out 4s infinite alternate none running;
 }
 
@@ -407,12 +404,12 @@ button[aria-expanded="true"] span:last-child {
   height: 500px;
   width: 500px;
   margin: 0;
-  top: 180px;
+  top: 32vh;
   right: 8vw;
   scale: 0;
   transition: all 1.5s ease;
   background-color: transparent;
-  border: 1px solid rgba(91, 91, 91, 0.35);
+  border: 1px solid rgba(91, 91, 91, 0.596);
   border-radius: 50%;
   animation: roll 8s ease-in-out 4s infinite alternate none running;
 }
@@ -501,6 +498,16 @@ button[aria-expanded="true"] span:last-child {
   cursor: none;
 }
 
+#page1 #button11 #abtn{
+  transform: none;
+  transition: all .1s ease;
+
+}
+
+#page1 #button11 #abtn:active{
+  transform: scale(.9);
+}
+
 #page1 #button11 .archivebtn {
   width: 170px;
   height: 55px;
@@ -512,6 +519,16 @@ button[aria-expanded="true"] span:last-child {
   color: black;
   border-radius: 4px;
   border: 2px solid black;
+}
+
+#page1 #button11 #archivebtn{
+  transform: none;
+  transition: all .1s ease;
+
+}
+
+#page1 #button11 #archivebtn:active{
+  transform: scale(.9);
 }
 
 .page2 {
@@ -759,6 +776,12 @@ button[aria-expanded="true"] span:last-child {
   text-decoration: none;
   background-color: black;
   border-radius: 4px;
+  transform: none;
+  transition: all .1s ease;
+}
+
+.email a:active{
+  transform: scale(0.9);
 }
 
 .email .emailbtn {

@@ -272,6 +272,17 @@ function revealanimation() {
 };
 revealanimation();
 
+// document.querySelector("#page1 #button11 .aboutbtn").addEventListener("mousedown", () => {
+//   gsap.to("#page1 #button11 .aboutbtn", {
+//     scale: .8,
+//   });
+// });
+// document.querySelector("#page1 #button11 .aboutbtn").addEventListener("mouseup", () => {
+//   gsap.to("#page1 #button11 .aboutbtn", {
+//     scale: 1,
+//   });
+// })
+
 
 
 
