@@ -198,20 +198,20 @@ function revealanimation() {
   gsap.from("#page1 #button11 .archivebtn", {
     y: 50,
     opacity: 0,
-    delay: 4.4,
+    delay: 4.2,
     duration: 1,
     stagger: 0.2,
     ease: "expo.inOut"
   });
   gsap.to(".firstcircle", {
     scale: 1,
-    delay: 4.3,
+    delay: 4.4,
     stagger: 0,
     duration: 1,
   });
   gsap.to(".secondcircle", {
     scale: 1,
-    delay: 4.3,
+    delay: 4.4,
     stagger: 0,
     duration: 1,
   });

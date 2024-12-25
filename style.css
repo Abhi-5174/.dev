@@ -189,7 +189,6 @@ button[aria-expanded="true"] span:last-child {
   top: 0;
   gap: 25px;
   display: flex;
-  gap: 10px;
   margin-bottom: 25px;
   flex-direction: column;
   align-items: center;
@@ -197,7 +196,7 @@ button[aria-expanded="true"] span:last-child {
 }
 
 .menuitem .menutext div {
-  height: 50px;
+  height: 40px;
   width: fit-content;
   overflow: hidden;
   text-align: center;
@@ -216,9 +215,7 @@ button[aria-expanded="true"] span:last-child {
 }
 
 .menuitem .menutext div:hover {
-  scale: 1.1;
-  /* font-size: 33px; */
-  /*border-bottom: 2px solid transparent;*/
+  scale: 1.02;
 }
 
 .menuitem .menutext #home.open {
@@ -245,7 +242,7 @@ button[aria-expanded="true"] span:last-child {
   width: 0%;
   height: 2px;
   background-color: black;
-  transition: all .3s ease;
+  transition: all .5s ease;
 }
 
 .menuitem .socialmedia {
