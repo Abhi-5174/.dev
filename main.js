@@ -1,14 +1,15 @@
+
 const buttonElement = document.querySelector('.menuToggle');
 var main111 = document.querySelector(".parent");
 var cursorm = document.querySelector("#cursormover");
 let navlist = document.querySelector('.menuitem');
 var logo = document.querySelector(".logoz");
 
-function menutogle() {
+function menutogle(event) {
+  event.preventDefault();
   navlist.classList.toggle('open');
   var expanded = buttonElement.getAttribute('aria-expanded') === 'true';
   buttonElement.setAttribute('aria-expanded', !expanded);
-  event.preventDefault();
   cursorm.classList.toggle("close");
   document.querySelector("#header .menuitem #home").classList.toggle("open");
   document.querySelector("#header .menuitem .proj").classList.toggle("open");
@@ -20,9 +21,10 @@ function menutogle() {
 function loadinganimation() {
   gsap.to(".loader", {
     delay: 0.4,
+    duration: .4,
     height: 0,
     ease: "expo.inOut",
-    stagger: 0.1,
+    stagger: .1,
     onComplete: () => {
       document.querySelector(".loader").remove();
     }
@@ -32,7 +34,7 @@ function loadinganimation() {
     height: 0,
     ease: "expo.inOut",
     duration: 1,
-    stagger: 0.1,
+    stagger: true,
     onComplete: () => {
       document.querySelector(".page123").remove();
     }
@@ -75,24 +77,29 @@ function locomotive() {
   ScrollTrigger.refresh();
 
 
+  document.querySelector("#page1 #button11 .archivebtn").addEventListener("click", () => {
+    locoScroll.scrollTo(document.querySelector(".page2"), -100);
+  });
+
   document.querySelector(".logoz").addEventListener("click", () => {
     locoScroll.scrollTo(0);
   });
 
   document.querySelector("#header .menuitem .proj").addEventListener("click", () => {
-    menutogle()
+    menutogle(event);
     locoScroll.scrollTo(document.querySelector(".page2"), -100);
   });
 
   window.addEventListener('load', () => {
-    locoScroll.reinit();
+    locoScroll.init();
+    locoScroll.scrollTop = "(0, 0)";
   });
 };
 locomotive();
 
 function menubtn() {
-  buttonElement.addEventListener('click', () => menutogle());
-  document.querySelector("#header .menuitem #abt").addEventListener("click", () => menutogle());
+  buttonElement.addEventListener('click', () => menutogle(event));
+  document.querySelector("#header .menuitem #home").addEventListener("click", () => menutogle(event));
 };
 menubtn();
 
@@ -138,12 +145,15 @@ function cursormover() {
 };
 cursormover();
 
-function scrollrevealanim() {
+function revealanimation() {
+
+  var t1 = gsap.timeline();
+
   gsap.to(".logoz", {
     y: 0,
     opacity: 1,
     delay: 2,
-    duration: 1,
+    duration: 0.8,
     stagger: 0.2,
     ease: "expo.inOut"
   });
@@ -151,88 +161,97 @@ function scrollrevealanim() {
     y: -50,
     opacity: 0,
     delay: 2,
+    duration: 0.8,
+    stagger: 0.2,
+    ease: "expo.inOut"
+  });
+  gsap.from("#page1 h1", {
+    y: 50,
+    opacity: 0,
+    delay: 2,
+    duration: 0.8,
+    ease: "expo.inOut",
+    stagger: 0.2,
+  });
+  t1.from("#page1 h2", {
+    y: 50,
+    opacity: 0,
+    delay: 2.6,
+    duration: 1,
+    stagger: 0.2,
+    ease: "expo.inOut",
+  });
+  t1.from("#page1 h3", {
+    y: 50,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.2,
+  });
+  gsap.from("#page1 #button11 .aboutbtn", {
+    y: 50,
+    opacity: 0,
+    delay: 4,
     duration: 1,
     stagger: 0.2,
     ease: "expo.inOut"
   });
-
-  gsap.from(".pge .homepage h1", {
+  gsap.from("#page1 #button11 .archivebtn", {
+    y: 50,
+    opacity: 0,
+    delay: 4.4,
+    duration: 1,
+    stagger: 0.2,
+    ease: "expo.inOut"
+  });
+  gsap.to(".firstcircle", {
+    scale: 1,
+    delay: 4.3,
+    stagger: 0,
+    duration: 1,
+  });
+  gsap.to(".secondcircle", {
+    scale: 1,
+    delay: 4.3,
+    stagger: 0,
+    duration: 1,
+  });
+  gsap.from(".page2 h1", {
+    y: 150,
+    opacity: 0,
+    stagger: .1,
+    duration: 1,
+    scrollTrigger: {
+      trigger: ".page2",
+      scroller: "#main",
+      start: "top 80%",
+    }
+  });
+  gsap.from(".page2 .projectpages", {
     y: 200,
     opacity: 0,
-    delay: 2.3,
-    duration: 1.2,
-    stagger: true,
-    ease: "expo.inOut"
+    stagger: .1,
+    duration: 1,
+    scrollTrigger: {
+      trigger: ".page2 .projectpages",
+      scroller: "#main",
+      start: "top 80%",
+    }
   });
-
-  gsap.from(".pge .homepage h3", {
-    y: 100,
+  gsap.from(".page2 .projectpages2", {
+    y: 200,
     opacity: 0,
-    delay: 2.7,
-    duration: 1.2,
-    stagger: true,
-    ease: "expo.inOut"
-  });
-
-  gsap.from(".pge .homepage #h41", {
-    y: 100,
-    opacity: 0,
-    delay: 3.1,
-    duration: 1.2,
-    stagger: true,
-    ease: "expo.inOut"
-  });
-  gsap.from(".pge .homepage #h42", {
-    y: 100,
-    opacity: 0,
-    delay: 3.5,
-    duration: 1.2,
-    stagger: true,
-    ease: "expo.inOut"
-  });
-
-  gsap.from(".pge .homepage #h43", {
-    y: 100,
-    opacity: 0,
-    delay: 3.9,
-    duration: 1.2,
-    stagger: true,
-    ease: "expo.inOut"
-  });
-  gsap.from(".pge .homepage #h44", {
-    y: 100,
-    opacity: 0,
-    delay: 4.3,
-    duration: 1.2,
-    stagger: true,
-    ease: "expo.inOut"
-  });
-  gsap.from(".pge .homepage #h45", {
-    y: 100,
-    opacity: 0,
-    delay: 4.7,
-    duration: 1.2,
-    stagger: true,
-    ease: "expo.inOut"
-  });
-  const elem = document.querySelectorAll("#scrollrevealanimation");
-  elem.forEach(elem => {
-    gsap.from(elem, {
-      y: 100,
-      opacity: 0,
-      stagger: 0.1,
-      duration: .8,
-      scrollTrigger: {
-        trigger: elem,
-        scroller: "#main",
-        start: "top 104%",
-      }
-    });
+    stagger: .1,
+    duration: 1,
+    scrollTrigger: {
+      trigger: ".page2 .projectpages2",
+      scroller: "#main",
+      start: "top 80%",
+    }
   });
   gsap.from(".email", {
     y: 100,
     opacity: 0,
-    stagger: true,
+    stagger: .1,
     duration: 1,
     scrollTrigger: {
       trigger: "footer",
@@ -243,14 +262,28 @@ function scrollrevealanim() {
   gsap.from(".lastxt", {
     y: 100,
     opacity: 0,
-    stagger: true,
+    stagger: .1,
     duration: 1,
     scrollTrigger: {
       trigger: ".email",
       scroller: "#main",
-      start: "top 75%",
+      start: "top 82%",
     }
   });
-}
-scrollrevealanim();
+};
+revealanimation();
+
+// document.querySelector("#page1 #button11 .aboutbtn").addEventListener("mousedown", () => {
+//   gsap.to("#page1 #button11 .aboutbtn", {
+//     scale: .8,
+//   });
+// });
+// document.querySelector("#page1 #button11 .aboutbtn").addEventListener("mouseup", () => {
+//   gsap.to("#page1 #button11 .aboutbtn", {
+//     scale: 1,
+//   });
+// })
+
+
+
 
